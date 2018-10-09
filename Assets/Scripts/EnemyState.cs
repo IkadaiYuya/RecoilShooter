@@ -6,52 +6,50 @@ public class EnemyState : MonoBehaviour {
 
     //耐久力
     [SerializeField] private int hp = 1;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //当たったのが弾だったら
-        if (other.gameObject.tag == "Bullet")
-        {
-            //ログに当たったことを残す
-            Debug.Log("Enemy_Bullet_Hit");
-            //耐久力を減らす
-            this.hp--;
-            //残り耐久力が0以下だったら
-            if (this.hp <= 0)
-            {
-                //敵を消滅させる
-                Destroy(this.gameObject);
-                //ログに敵が消滅したことを残す
-                Debug.Log("Enemy_Destroy");
-            }
-            //敵と当たっていたら弾を消滅させる
-            Destroy(other.gameObject);
-        }
-        //プレイヤーだったら
-        if (other.gameObject.tag == "Player")
-        {
-            //ログに当たったことを残す
-            Debug.Log("Enemy_Player_Hit");
-            //耐久力を減らす
-            this.hp--;
-            //残り耐久力が0以下だったら
-            if (this.hp <= 0)
-            {
-                //敵を消滅させる
-                Destroy(this.gameObject);
-                //ログに敵が消滅したことを残す
-                Debug.Log("Enemy_Destroy");
-            }
-        }
-    }
+    //爆発のエフェクト
+    [SerializeField] private GameObject bombEffect;
 
     // Use this for initialization
     void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    //当たり判定処理
+    private void OnTriggerEnter(Collider other)
+    {
+        //当たったのが弾だったら
+        if (other.gameObject.tag == "Bullet")
+        {
+            //耐久力を減らす
+            this.hp--;
+            //敵と当たっていたら弾を消滅させる
+            Destroy(other.gameObject);
+            //残り耐久力が0以下だったら
+            if (this.hp <= 0)
+            {
+                //爆破エフェクトを生成
+                Instantiate(bombEffect, this.transform.position, transform.rotation);
+                //敵を消滅させる
+                Destroy(this.gameObject);
+            }
+        }
+        //プレイヤーだったら
+        else if (other.gameObject.tag == "Player")
+        {
+            //耐久力を減らす
+            this.hp--;
+            //残り耐久力が0以下だったら
+            if (this.hp <= 0)
+            {
+                //爆破エフェクトを生成
+                Instantiate(bombEffect, this.transform.position, transform.rotation);
+                //敵を消滅させる
+                Destroy(this.gameObject);
+            }
+        }
+    }
 }

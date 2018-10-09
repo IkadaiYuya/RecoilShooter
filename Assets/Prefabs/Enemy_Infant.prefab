@@ -119,7 +119,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 2e55228103df9254985d5c7b2d2d100d, type: 2}
   m_StaticBatchInfo:
@@ -154,7 +153,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: c1695044114a69e4dbf261e7865017ec, type: 2}
   m_StaticBatchInfo:
@@ -222,7 +220,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114117066566465472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  bombEffect: {fileID: 1703144995000052, guid: 94d4bdfac7b982641a9eba6480fe4bc6, type: 2}
 --- !u!114 &114433267329760160
 MonoBehaviour:
   m_ObjectHideFlags: 1
