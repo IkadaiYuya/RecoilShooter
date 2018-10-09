@@ -10,7 +10,6 @@ public class BulletControll : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
-        //Debug.Log("kieta");
     }
 
     // Use this for initialization

@@ -9,6 +9,8 @@ TagManager:
   - StageLimitR
   - StageLimitT
   - StageLimitB
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
