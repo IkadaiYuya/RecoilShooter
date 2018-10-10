@@ -246,8 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 5
-  moveSpeed: 5
+  MaxMoveSpeed: 15
+  moveSpeed: 3
   rotSpeed: 360
 --- !u!135 &135876114437815726
 SphereCollider:

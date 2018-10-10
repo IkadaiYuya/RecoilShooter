@@ -363,8 +363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 3
-  moveSpeed: 5
+  MaxMoveSpeed: 5
+  moveSpeed: 3
   rotSpeed: 360
 --- !u!114 &114757705218811736
 MonoBehaviour:

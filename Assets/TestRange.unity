@@ -994,7 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3f6d2fb06a61345918fb316ababdd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPosition:
+  WavesPosition:
   - {fileID: 1534228720}
   - {fileID: 2009297177}
   - {fileID: 1285334297}
@@ -1007,15 +1007,16 @@ MonoBehaviour:
   - {fileID: 1686127787}
   - {fileID: 1747367481}
   - {fileID: 2100534322}
-  Enemy:
-  - {fileID: 1264144115994884, guid: 37df91cb2fa18194499732a0552b2e5c, type: 2}
-  - {fileID: 1443472989935268, guid: 5b13ccadc528389458b4da8f4b831f45, type: 2}
-  - {fileID: 1267024904660332, guid: 7081a2253ec0fce418261c7ae178e3ca, type: 2}
-  - {fileID: 1423188391242162, guid: e51834b61f3819f4a8980d7e64d7645c, type: 2}
+  Waves:
+  - {fileID: 1143728428318348, guid: 0556dc768eaad6947aaf99ac2c90daf7, type: 2}
+  - {fileID: 1908389102630384, guid: 8704c9bc79c090f4eb15f7e3809febb3, type: 2}
+  - {fileID: 1618281936965608, guid: 7323af0f831b5874b93f49cc0c8e8faa, type: 2}
+  - {fileID: 1873373340452170, guid: 45af06b7fc6a1504dba429a16a22a0e6, type: 2}
+  - {fileID: 1615042060248510, guid: 55afca28564ac184f8ffc45de63e1639, type: 2}
+  - {fileID: 1750221575808742, guid: 07159aadd48854d4fbf172c6a8b42e18, type: 2}
   time: 3
-  timer_Dec: 0.1
-  min_AppearTime: 0.3
-  maxEnemyNum: 20
+  maxWavesUpTime: 10
+  maxWavesNum: 1
 --- !u!4 &1412294956
 Transform:
   m_ObjectHideFlags: 0
