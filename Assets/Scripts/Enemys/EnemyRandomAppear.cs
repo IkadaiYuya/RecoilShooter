@@ -38,7 +38,6 @@ public class EnemyRandomAppear : MonoBehaviour {
         }
         //タイマー加算
         timer += Time.deltaTime;
-        //Debug.Log("Timer++ : " + timer);
     }
 
     private void RandomAppear()
@@ -50,7 +49,6 @@ public class EnemyRandomAppear : MonoBehaviour {
                 //第１フェーズでは体力の少ない3部隊から生成
                 Instantiate(Waves[Random.Range(0, 10) % 3], WavesPosition[Random.Range(0, WavesPosition.Count)].position, transform.rotation);
                 timer = 0;
-                Debug.Log("RandomApper");
             }
         }
         else
@@ -60,7 +58,6 @@ public class EnemyRandomAppear : MonoBehaviour {
                 //第2フェーズではすべての隊列から生成
                 Instantiate(Waves[Random.Range(0, Waves.Count)], WavesPosition[Random.Range(0, WavesPosition.Count)].position, transform.rotation);
                 timer = 0;
-                Debug.Log("RandomApper");
             }
         }
     }
@@ -68,8 +65,6 @@ public class EnemyRandomAppear : MonoBehaviour {
     //現在のプレイ時間から生成する敵の隊列の数の最大数を判断する
     private void EnemysWaveNowMax()
     {
-        Debug.Log("MaxWaves : " + maxWavesNum);
-        Debug.Log("NowWaves : " + wavesNum);
         if(Time.time <= ferse1Time)
         {
             return;
