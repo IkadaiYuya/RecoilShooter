@@ -8,9 +8,14 @@ public class EnemyState : MonoBehaviour {
     [SerializeField] private int hp = 1;
     //爆発のエフェクト
     [SerializeField] private GameObject bombEffect;
-
+    //自身のスコア
+    private int point = 100;
+    //スコア管理スクリプト
+    private ScoreManager scoreMane; 
+    
     // Use this for initialization
     void Start () {
+        scoreMane = GameObject.Find("MainGameUI").GetComponent<ScoreManager>();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +36,8 @@ public class EnemyState : MonoBehaviour {
             //残り耐久力が0以下だったら
             if (this.hp <= 0)
             {
+                //スコアを加算
+                scoreMane.AddScore(this.point);
                 //爆破エフェクトを生成
                 Instantiate(bombEffect, this.transform.position, transform.rotation);
                 //敵を消滅させる
@@ -45,6 +52,8 @@ public class EnemyState : MonoBehaviour {
             //残り耐久力が0以下だったら
             if (this.hp <= 0)
             {
+                //スコアを加算
+                scoreMane.AddScore(this.point);
                 //爆破エフェクトを生成
                 Instantiate(bombEffect, this.transform.position, transform.rotation);
                 //敵を消滅させる

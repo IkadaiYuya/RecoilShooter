@@ -1572,8 +1572,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchPos: {fileID: 4752281155237666}
   bullet: {fileID: 1432864350341120, guid: de29769bac5a5f2478a736e0c8e3d27a, type: 2}
-  shotSpeed: 100
+  shotsSpeed: 5
   shotsTime: 2
+  shotsInterval: 0.16
+  howManyFire: 3
 --- !u!114 &114333544883596914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1587,8 +1589,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchPos: {fileID: 4091289264366140}
   bullet: {fileID: 1432864350341120, guid: de29769bac5a5f2478a736e0c8e3d27a, type: 2}
-  shotSpeed: 100
+  shotsSpeed: 5
   shotsTime: 2
+  shotsInterval: 0.16
+  howManyFire: 3
 --- !u!114 &114334930138043038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1658,8 +1662,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchPos: {fileID: 4601122103727712}
   bullet: {fileID: 1432864350341120, guid: de29769bac5a5f2478a736e0c8e3d27a, type: 2}
-  shotSpeed: 100
+  shotsSpeed: 5
   shotsTime: 2
+  shotsInterval: 0.16
+  howManyFire: 3
 --- !u!114 &114843422545747140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1705,8 +1711,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchPos: {fileID: 4722319386481574}
   bullet: {fileID: 1432864350341120, guid: de29769bac5a5f2478a736e0c8e3d27a, type: 2}
-  shotSpeed: 100
+  shotsSpeed: 5
   shotsTime: 2
+  shotsInterval: 0.16
+  howManyFire: 3
 --- !u!135 &135465254802734848
 SphereCollider:
   m_ObjectHideFlags: 1

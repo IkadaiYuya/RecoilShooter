@@ -15,7 +15,7 @@ public class PlayerControll : MonoBehaviour
 
 	[SerializeField] private Transform launchPos;                   //Bullet出現オブジェクト
 	[SerializeField] private GameObject bullet;                     //弾
-	[SerializeField] private float shotSpeed = 20.0f;               //弾速
+	[SerializeField] private float shotsSpeed = 20.0f;               //弾速
     [SerializeField] private float time = 0.3f;                     //弾の出現間隔初期値
     private float timer = 0.0f;                                     //弾の出現間隔タイマー
     
@@ -55,7 +55,7 @@ public class PlayerControll : MonoBehaviour
         {
 		    GameObject bullets = GameObject.Instantiate(bullet, transform.position, transform.rotation) as GameObject;
 		    Vector3 force;
-		    force = this.gameObject.transform.forward * (shotSpeed * 100);
+		    force = this.gameObject.transform.forward * (shotsSpeed * 100);
 		    bullets.GetComponent<Rigidbody>().AddForce(force);
 		    bullets.transform.position = launchPos.position;
         }

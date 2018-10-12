@@ -393,8 +393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchPos: {fileID: 4271308371479444}
   bullet: {fileID: 1432864350341120, guid: de29769bac5a5f2478a736e0c8e3d27a, type: 2}
-  shotSpeed: 100
+  shotsSpeed: 5
   shotsTime: 2
+  shotsInterval: 0.16
+  howManyFire: 3
 --- !u!114 &114733919080234350
 MonoBehaviour:
   m_ObjectHideFlags: 1

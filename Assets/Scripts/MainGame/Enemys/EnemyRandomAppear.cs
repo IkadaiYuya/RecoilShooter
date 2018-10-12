@@ -22,11 +22,11 @@ public class EnemyRandomAppear : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Instantiate(Waves[1], WavesPosition[Random.Range(0, WavesPosition.Count)].position, transform.rotation);
+    }
+
+    // Update is called once per frame
+    void Update () {
         //現在のプレイ時間から生成する敵の隊列の数の最大数を判断する
         EnemysWaveNowMax();
         //現在出現してる敵の数を数える

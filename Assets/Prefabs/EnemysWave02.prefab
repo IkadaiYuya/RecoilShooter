@@ -1329,8 +1329,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchPos: {fileID: 4337031805672710}
   bullet: {fileID: 1432864350341120, guid: de29769bac5a5f2478a736e0c8e3d27a, type: 2}
-  shotSpeed: 100
+  shotsSpeed: 5
   shotsTime: 2
+  shotsInterval: 0.16
+  howManyFire: 3
 --- !u!114 &114467965248855382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1344,8 +1346,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchPos: {fileID: 4992087159987378}
   bullet: {fileID: 1432864350341120, guid: de29769bac5a5f2478a736e0c8e3d27a, type: 2}
-  shotSpeed: 100
+  shotsSpeed: 5
   shotsTime: 2
+  shotsInterval: 0.16
+  howManyFire: 3
 --- !u!114 &114635498941480874
 MonoBehaviour:
   m_ObjectHideFlags: 1
