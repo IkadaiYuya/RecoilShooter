@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
 
+    //プレイヤー消滅後待機時間
+    [SerializeField] private float waitTime = 3.0f;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,10 +24,13 @@ public class LoadScene : MonoBehaviour {
     private bool PlayerIsDead()
     {
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        Debug.Log(player.Length);
         if(player.Length <= 0 )
         {
-            return true;
+            waitTime -= Time.deltaTime;
+            if(waitTime <= 0)
+            {
+                return true;
+            }
         }
         return false;
     }
