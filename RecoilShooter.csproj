@@ -299,11 +299,14 @@
     <Compile Include="Assets\Scripts\MainGame\Enemys\EnemyState.cs" />
     <Compile Include="Assets\Scripts\MainGame\Enemys\EnemysWaveState.cs" />
     <Compile Include="Assets\Scripts\MainGame\LoadScene.cs" />
+    <Compile Include="Assets\Scripts\MainGame\Player\CreatePlayer.cs" />
     <Compile Include="Assets\Scripts\MainGame\Player\PlayerControll.cs" />
     <Compile Include="Assets\Scripts\MainGame\Player\PlayerState.cs" />
     <Compile Include="Assets\Scripts\MainGame\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\Result\ScoreView.cs" />
     <Compile Include="Assets\Scripts\Title\CircleDeployer.cs" />
+    <Compile Include="Assets\Scripts\Title\LoadMainGame.cs" />
+    <Compile Include="Assets\Scripts\Title\LookAtForword.cs" />
     <Compile Include="Assets\Scripts\Title\Select_Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
