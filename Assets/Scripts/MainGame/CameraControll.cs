@@ -11,6 +11,7 @@ public class CameraControll : MonoBehaviour
     //
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void FixedUpdate()

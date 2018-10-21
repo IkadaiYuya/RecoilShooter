@@ -17,6 +17,11 @@ public class LoadScene : MonoBehaviour {
 	void Update () {
         if(PlayerIsDead())
         {
+            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(GameObject ene in enemys)
+            {
+                Destroy(ene);
+            }
             SceneManager.LoadScene("Results");
         }
 	}

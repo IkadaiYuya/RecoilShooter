@@ -42,7 +42,7 @@ public class EnemyRandomAppear : MonoBehaviour {
 
     private void RandomAppear()
     {
-        if (Time.time <= ferse1Time)
+        if (timer <= ferse1Time)
         {
             if(time - timer <= 0)
             {

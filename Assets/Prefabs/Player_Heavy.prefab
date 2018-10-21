@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 54779014442285908}
   - component: {fileID: 114051599797361448}
   - component: {fileID: 114426447612284824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_Heavy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   rotSpeed: 360
   recoilPower: 2
   maxSpeed: 5
-  boundPower: 1
+  boundPower: 100
   launchPos: {fileID: 4984481446181168}
   bullet: {fileID: 1316553176389554, guid: aec29bb23122a46459770e5de5797f78, type: 2}
   shotsSpeed: 20

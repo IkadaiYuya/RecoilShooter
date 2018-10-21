@@ -36,7 +36,7 @@ public class EnemyMove : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
-        playerpos = transform.Find("/Player").GetComponent<Transform>();
+        playerpos = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
 	// Update is called once per frame
