@@ -16,7 +16,10 @@ public class CameraControll : MonoBehaviour
 
     void FixedUpdate()
 	{
-		Vector3 targetPos = new Vector3(player.position.x, player.position.y + distance, player.position.z);
-		this.transform.position = Vector3.MoveTowards(transform.position, targetPos, speed);
+        if(player != null)
+        {
+		    Vector3 targetPos = new Vector3(player.position.x, player.position.y + distance, player.position.z);
+		    this.transform.position = Vector3.MoveTowards(transform.position, targetPos, speed);
+        }
 	}
 }

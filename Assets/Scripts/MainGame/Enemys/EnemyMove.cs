@@ -42,9 +42,12 @@ public class EnemyMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         actionChengeTimer -= Time.deltaTime;
-        ChengeType();
-        AngleChenge();
-        Move();
+        if(playerpos != null)
+        {
+            ChengeType();
+            AngleChenge();
+            Move();
+        }
 	}
 
     //向きなどの変更

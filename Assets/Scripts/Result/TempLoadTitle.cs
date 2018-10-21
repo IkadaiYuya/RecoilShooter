@@ -12,7 +12,6 @@ public class TempLoadTitle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ScoreManager.score = 0;
 	}
 	
 	// Update is called once per frame
@@ -20,6 +19,7 @@ public class TempLoadTitle : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Push_Button");
+            ScoreManager.score = 0;
             SceneManager.LoadScene("Title");
         }
 	}
