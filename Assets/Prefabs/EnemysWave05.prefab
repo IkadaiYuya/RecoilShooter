@@ -1291,6 +1291,8 @@ MonoBehaviour:
   shotsTime: 2
   shotsInterval: 0.16
   howManyFire: 3
+  playerPos: {fileID: 0}
+  distance: {x: 0, y: 0, z: 2}
 --- !u!114 &114337264117269722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1321,6 +1323,8 @@ MonoBehaviour:
   shotsTime: 2
   shotsInterval: 0.16
   howManyFire: 3
+  playerPos: {fileID: 0}
+  distance: {x: 0, y: 0, z: 2}
 --- !u!114 &114394020192822200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1384,7 +1388,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: -0.15}
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!135 &135629362309361474
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1396,7 +1400,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: -0.15}
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!135 &135676693674008952
 SphereCollider:
   m_ObjectHideFlags: 1

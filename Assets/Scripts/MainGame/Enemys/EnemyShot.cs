@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShot : MonoBehaviour {
+public class EnemyShot : MonoBehaviour
+{
 
     //Bullet出現オブジェクト
     [SerializeField] private Transform launchPos;
@@ -21,20 +22,27 @@ public class EnemyShot : MonoBehaviour {
     //連発する弾の数
     [SerializeField] private int howManyFire = 3;
     //
+    [SerializeField] private GameObject playerPos;
+    [SerializeField] private Vector3 distance;
     private GameObject targetPos;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
+        playerPos = GameObject.FindGameObjectWithTag("Player");
         targetPos = GameObject.Find("TargetPos");
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if(timer <= 0)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (timer <= 0)
         {
             Fire();
         }
         timer -= Time.deltaTime;
+
+
     }
 
     //
@@ -68,7 +76,7 @@ public class EnemyShot : MonoBehaviour {
     private void BurstFire()
     {
         shotsCnt++;
-        if(shotsCnt < howManyFire)
+        if (shotsCnt < howManyFire)
         {
             timer = shotsInterval;
         }
@@ -78,9 +86,15 @@ public class EnemyShot : MonoBehaviour {
             shotsCnt = 0;
         }
         GameObject bullets = GameObject.Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+        
         Vector3 force = Vector3.zero;
-        force = new Vector3(targetPos.transform.position.x - this.transform.position.x, 0, targetPos.transform.position.z - this.transform.position.z).normalized * (shotsSpeed * 100.0f);
-        bullets.GetComponent<Rigidbody>().AddForce(force);
+        Vector3 forceDirection = Vector3.zero;
+
+        force = (playerPos.transform.position + distance) - this.transform.position;
+        forceDirection = force.normalized;
+        //force = new Vector3((playerPos.transform.position.x + targetPos.transform.localPosition.x) - this.transform.position.x, 0, (playerPos.transform.position.x + targetPos.transform.localPosition.z) - this.transform.position.z).normalized * (shotsSpeed * 100.0f);
+        bullets.GetComponent<Rigidbody>().AddForce(forceDirection * (shotsSpeed * 100.0f));
+
         bullets.transform.position = launchPos.position;
     }
 }
