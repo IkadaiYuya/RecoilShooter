@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 8
+  MaxMoveSpeed: 12.5
   moveSpeed: 3
   rotSpeed: 360
 --- !u!114 &114191188286401156
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 8
+  MaxMoveSpeed: 12.5
   moveSpeed: 3
   rotSpeed: 360
 --- !u!114 &114262177473907904
@@ -1388,7 +1388,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135629362309361474
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1400,7 +1400,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135676693674008952
 SphereCollider:
   m_ObjectHideFlags: 1

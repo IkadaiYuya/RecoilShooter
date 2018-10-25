@@ -25,8 +25,8 @@ public class Select_Player_Result : MonoBehaviour {
     [SerializeField] private float rotSpeed = 120.0f;
     //スティックの長押し非対応
     private bool stickDown = false;
-    //選択したプレイヤー番号
-    public static int selected_Player = 0;
+    ////選択したプレイヤー番号
+    //public static int selected_Player = 0;
     //LStick入力値
     private Vector2 input = Vector2.zero;
     //選択し終わっているかどうか
@@ -203,13 +203,13 @@ public class Select_Player_Result : MonoBehaviour {
             switch (playerNum)
             {
                 case Select_Players.Normal:
-                    selected_Player = 0;
+                    Select_Player.selected_Player = 0;
                     break;
                 case Select_Players.Speed:
-                    selected_Player = 1;
+                    Select_Player.selected_Player = 1;
                     break;
                 case Select_Players.Heavy:
-                    selected_Player = 2;
+                    Select_Player.selected_Player = 2;
                     break;
             }
             selected = true;

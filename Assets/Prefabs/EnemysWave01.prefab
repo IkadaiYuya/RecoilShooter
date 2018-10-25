@@ -919,7 +919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 8
+  MaxMoveSpeed: 12.5
   moveSpeed: 33
   rotSpeed: 360
 --- !u!114 &114389298164599822
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 8
+  MaxMoveSpeed: 12.5
   moveSpeed: 33
   rotSpeed: 360
 --- !u!114 &114592659327887254
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 8
+  MaxMoveSpeed: 12.5
   moveSpeed: 33
   rotSpeed: 360
 --- !u!114 &114667635518732246
@@ -980,7 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChengeTime: 10
   minChengeTiem: 5
-  MaxMoveSpeed: 8
+  MaxMoveSpeed: 12.5
   moveSpeed: 33
   rotSpeed: 360
 --- !u!114 &114678602082738180

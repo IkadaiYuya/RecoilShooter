@@ -20,6 +20,8 @@ public class LoadSceneFromResult : MonoBehaviour {
         //選択が終了していたら
         if (select.selected)
         {
+            //スコアを初期化
+            ScoreManager.score = 0;
             //Exitが選択されたら
             if(select.selected_exit)
             {

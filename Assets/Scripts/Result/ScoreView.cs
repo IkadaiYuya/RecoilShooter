@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreView : MonoBehaviour {
 
-    //
+    //スコア表示用テキスト
     [SerializeField] private Text scoreText;
-    //
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +15,7 @@ public class ScoreView : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //テキストに今回のスコアを設定
         scoreText.text = ScoreManager.score.ToString();	
 	}
 }

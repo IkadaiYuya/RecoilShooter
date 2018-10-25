@@ -7,6 +7,8 @@ public class PlayerState : MonoBehaviour {
     //耐久力
     [SerializeField] private int hp = 3;
 
+    [SerializeField] private GameObject[] effects;
+
     //あたり判定処理
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +22,11 @@ public class PlayerState : MonoBehaviour {
             {
                 //削除
                 Destroy(this.gameObject);
+
+                for(int e = 0; e < effects.Length; ++e)
+                {
+                    Instantiate(effects[e], transform.position, transform.rotation);
+                }
             }
         }
         //当たったオブジェクトのタグが"EnemyBullet"なら
@@ -35,6 +42,11 @@ public class PlayerState : MonoBehaviour {
             {
                 //削除
                 Destroy(this.gameObject);
+
+                for (int e = 0; e < effects.Length; ++e)
+                {
+                    Instantiate(effects[e], transform.position, transform.rotation);
+                }
             }
         }
     }
