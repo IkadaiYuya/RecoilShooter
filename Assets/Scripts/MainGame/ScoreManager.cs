@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] private const float MaxDicScoreMagnificationTime = 180.0f;
     //スコア倍率
     private int scoreMagnification = 1;
+    //最大スコア倍率
+    [SerializeField] private int maxScoreMagni = 20;
     //UIでの倍率表示
     [SerializeField] private Text scoreMagni;
     //UIでのスコア表示
@@ -71,6 +73,10 @@ public class ScoreManager : MonoBehaviour {
     {
         score += point * scoreMagnification;
         scoreMagnification++;
+        if(scoreMagnification >= maxScoreMagni)
+        {
+            scoreMagnification = maxScoreMagni;
+        }
         DicScoreMagnificationTimer = MaxDicScoreMagnificationTime;
     }
 }

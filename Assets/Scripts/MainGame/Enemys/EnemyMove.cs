@@ -66,14 +66,14 @@ public class EnemyMove : MonoBehaviour {
         {            
             case EnemyType.Random:
                 //Thinkで計算した向きに移動
-                rigidbody.AddForce(moveDirection);
+                rigidbody.AddForce(moveDirection * moveSpeed);
                 rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, MaxMoveSpeed);
                 //transform.Translate(transform.InverseTransformDirection(moveDirection) * moveSpeed * Time.deltaTime, Space.Self);
                 break;
             case EnemyType.DirPlayer:
                 //自身の向きに移動
                 moveDirection = new Vector3(playerpos.position.x - transform.position.x, 0, playerpos.position.z - transform.position.z);
-                rigidbody.AddForce(moveDirection);
+                rigidbody.AddForce(moveDirection * moveSpeed);
                 rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, MaxMoveSpeed);
                 //transform.Translate(transform.InverseTransformDirection(moveDirection) * moveSpeed * Time.deltaTime, Space.Self);
                 break;
