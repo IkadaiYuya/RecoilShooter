@@ -1070,13 +1070,13 @@ MonoBehaviour:
   - {fileID: 1529377678}
   - {fileID: 1056002700}
   - {fileID: 1332655284}
-  viewTime: 2
   hpImage:
   - {fileID: 1529377680}
   - {fileID: 1056002702}
   - {fileID: 1332655286}
-  onoff: 0.5
-  fadeOutTime: 0.3
+  viewTime: 1
+  onoff: 0.1
+  fadeOutTime: 2
 --- !u!1001 &1017292934
 Prefab:
   m_ObjectHideFlags: 0

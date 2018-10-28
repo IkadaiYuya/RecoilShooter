@@ -27,8 +27,6 @@ public class PlayerState : MonoBehaviour {
             //耐久力が0以下なら
             if(this.hp <= 0)
             {
-                //HPのUIを見えなくする
-                viewer.LostHPView();
                 //削除
                 Destroy(this.gameObject);
 
@@ -47,12 +45,9 @@ public class PlayerState : MonoBehaviour {
             damage = true;
             //敵の弾を削除
             Destroy(other.gameObject);
-            Debug.Log("EnemyBullet_Hit");
             //耐久力が0以下なら
             if (this.hp <= 0)
             {
-                //HPのUIを見えなくする
-                viewer.LostHPView();
                 //削除
                 Destroy(this.gameObject);
 
@@ -72,15 +67,9 @@ public class PlayerState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hp > 1 && damage)
+        if(damage)
         {
-            //HP表示関数に渡す
             damage = viewer.HPView(hp);
         }
-        if(hp == 1)
-        {
-            viewer.LastHPView();
-        }
 	}
-
 }
