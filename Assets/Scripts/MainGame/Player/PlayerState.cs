@@ -11,7 +11,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private GameObject[] effects = new GameObject[3];
     //ダメージを受けたか
     private bool damage = false;
-    //
+    //HPのUI表示スクリプト
     private PlayerHPView viewer;
 
     //あたり判定処理
@@ -27,9 +27,11 @@ public class PlayerState : MonoBehaviour {
             //耐久力が0以下なら
             if(this.hp <= 0)
             {
+                //消滅する前にHPのUIを非表示に
+                viewer.HideHP();
                 //削除
                 Destroy(this.gameObject);
-
+                //爆発エフェクト生成
                 for(int e = 0; e < effects.Length; ++e)
                 {
                     Instantiate(effects[e], transform.position, transform.rotation);
@@ -48,9 +50,11 @@ public class PlayerState : MonoBehaviour {
             //耐久力が0以下なら
             if (this.hp <= 0)
             {
+                //消滅する前にHPのUIを非表示に
+                viewer.HideHP();
                 //削除
                 Destroy(this.gameObject);
-
+                //爆発エフェクト生成
                 for (int e = 0; e < effects.Length; ++e)
                 {
                     Instantiate(effects[e], transform.position, transform.rotation);
@@ -67,8 +71,12 @@ public class PlayerState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //ダメージを受けていたら
         if(damage)
         {
+            //HPのUIを表示
+            //表示が終了するとfalseを返してくる
+            //引数：(残りHP)
             damage = viewer.HPView(hp);
         }
 	}

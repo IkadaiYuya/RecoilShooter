@@ -12,25 +12,21 @@ public class PlayerHPView : MonoBehaviour
     [SerializeField] private Image[] hpImage = new Image[3];
     //ダメージ時にHPのUIを表示する時間
     [SerializeField] private float viewTime = 2.0f;
-    //HPのUI用タイマー
-    private float viewTimer = 0;
-    //点滅の秒
-    [SerializeField] private float onoff = 0.4f;
     //フェードアウトする時間
     [SerializeField] private float fadeOutTime = 0.1f;
-    //フェードアウト用タイマー
-    private float fadeOutTimer = 0;
-
-    private int cnt = 0;
+    //HPのUI表示とフェードアウト用タイマー
+    private float hpViewTimer = 0;
+    //残りHPが1の時の点滅間隔
+    [SerializeField] private float flashing = 0.4f;
+     //HPのUI用タイマー
+    private float flashingTimer = 0;
 
 
     // Use this for initialization
     void Start()
     {
-        foreach (GameObject v in hpView)
-        {
-            v.SetActive(false);
-        }
+        //すべてのHPのUIを非表示に
+        HideHP();
     }
 
     // Update is called once per frame
@@ -44,19 +40,25 @@ public class PlayerHPView : MonoBehaviour
     //引数:(体力)
     public bool HPView(int hp)
     {
+        //一旦すべてを非表示に
         HideHP();
-        viewTimer += Time.deltaTime;
+        //残りHPが1より多いなら
         if(hp > 1)
         {
+            //フェードアウトまで終わったらfalseを返してくる
             return HPViews(hp);
         }
+        //１なら
         else if(hp == 1)
         {
             LastHPView();
+            //ずっと表示させる
             return true;
         }
+        //基本は入らない
         else
         {
+            //もし入ってきても表示しない
             return false;
         }
     }
@@ -65,48 +67,64 @@ public class PlayerHPView : MonoBehaviour
     //表示を消したらfalseを返す
     private bool HPViews(int hp)
     {
-        if(viewTime + fadeOutTime - fadeOutTimer > 0)
+        //経過時間がフェードアウトまでを含めた表示時間を超えていないなら
+        if(viewTime + fadeOutTime - hpViewTimer > 0)
         {
-            if(viewTime - fadeOutTimer > 0)
+            //表示時間内なら
+            if(viewTime - hpViewTimer > 0)
             {
+                //残りHP分表示
                 for (int i = 0; i < hp;++i)
                 {
                     hpView[i].SetActive(true);
                 }
             }
-            else
+            //フェードアウトのタイミングなら
+            else if(fadeOutTime - (hpViewTimer - viewTime) > 0)
             {
+                //残りHPをフェードアウトさせる
                 for(int i = 0; i < hp;++i)
                 {
-                    float alpha = 1 - (fadeOutTimer - viewTime) / fadeOutTime;
-                    Debug.Log("FT:" + fadeOutTimer);
-                    Debug.Log("AL:" + alpha);
-                    Debug.Log("AL-:" + (fadeOutTimer - viewTime) / fadeOutTime);
-                    Debug.Log("FONum:" + cnt);
-                    cnt++;
+                    //指定したHPを表示
+                    hpView[i].SetActive(true);
+                    //不透明度をコサインを使って指定
+                    //フェードアウトする時間いっぱい使う
+                    float alpha = Mathf.Cos((hpViewTimer - viewTime) / fadeOutTime * 60.0f * Mathf.PI / 180.0f);
+                    //上で計算した不透明度を指定したHPのUIにあてる
                     hpImage[i].color = new Color(1, 1, 1, alpha);
                 }
             }
         }
+        //フェードアウトまで終了したら
         else
         {
+            //すべてを非表示に
             HideHP();
+            //HP表示終了
             return false;
         }
-        fadeOutTimer += Time.deltaTime;
+        //タイマー加算
+        hpViewTimer += Time.deltaTime;
+        //まだ表示し続ける
         return true;
     }
 
     //残りHPが1の時のUI表示
     private void LastHPView()
     {
+        //最後のHPのUIだけ表示
         hpView[0].SetActive(true);
-        float alpha = Mathf.Cos(viewTimer / onoff * 60.0f * Mathf.PI / 180.0f);
+        //不透明度をコサインを使って指定
+        //設定した間隔で点滅させる
+        float alpha = Mathf.Cos(flashingTimer / flashing * 60.0f * Mathf.PI / 180.0f);
+        //最後のHPに計算した不透明を指定
         hpImage[0].color = new Color(0.9f, 0.5f, 0.5f, alpha);
+        //タイマーを加算
+        flashingTimer += Time.deltaTime;
     }
 
-    //
-    private void HideHP()
+    //HPを非表示にする
+    public void HideHP()
     {
         foreach(GameObject v in hpView)
         {

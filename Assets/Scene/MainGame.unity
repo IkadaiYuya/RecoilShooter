@@ -1074,9 +1074,9 @@ MonoBehaviour:
   - {fileID: 1529377680}
   - {fileID: 1056002702}
   - {fileID: 1332655286}
-  viewTime: 1
-  onoff: 0.1
-  fadeOutTime: 2
+  viewTime: 2
+  fadeOutTime: 0.1
+  flashing: 0.1
 --- !u!1001 &1017292934
 Prefab:
   m_ObjectHideFlags: 0
