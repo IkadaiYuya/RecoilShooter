@@ -920,7 +920,7 @@ MonoBehaviour:
   maxChengeTime: 10
   minChengeTiem: 5
   MaxMoveSpeed: 12.5
-  moveSpeed: 33
+  moveSpeed: 3
   rotSpeed: 360
 --- !u!114 &114389298164599822
 MonoBehaviour:
@@ -936,7 +936,7 @@ MonoBehaviour:
   maxChengeTime: 10
   minChengeTiem: 5
   MaxMoveSpeed: 12.5
-  moveSpeed: 33
+  moveSpeed: 3
   rotSpeed: 360
 --- !u!114 &114592659327887254
 MonoBehaviour:
@@ -952,7 +952,7 @@ MonoBehaviour:
   maxChengeTime: 10
   minChengeTiem: 5
   MaxMoveSpeed: 12.5
-  moveSpeed: 33
+  moveSpeed: 3
   rotSpeed: 360
 --- !u!114 &114667635518732246
 MonoBehaviour:
@@ -981,7 +981,7 @@ MonoBehaviour:
   maxChengeTime: 10
   minChengeTiem: 5
   MaxMoveSpeed: 12.5
-  moveSpeed: 33
+  moveSpeed: 3
   rotSpeed: 360
 --- !u!114 &114678602082738180
 MonoBehaviour:

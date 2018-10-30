@@ -15,16 +15,22 @@ public class PlayerControll : MonoBehaviour
 
 	[SerializeField] private Transform launchPos;                   //Bullet出現オブジェクト
 	[SerializeField] private GameObject bullet;                     //弾
-	[SerializeField] private float shotsSpeed = 20.0f;               //弾速
+	[SerializeField] private float shotsSpeed = 20.0f;              //弾速
     [SerializeField] private float time = 0.3f;                     //弾の出現間隔初期値
+    private AudioSource shotsAudio = null;         //弾発射時の音源
     private float timer = 0.0f;                                     //弾の出現間隔タイマー
     
 	Rigidbody rigidbody;
+
+    private EnemyRandomAppear era = null;
 
 	void Start()
 	{
         //rigidbodyを取得
 		rigidbody = GetComponent<Rigidbody>();
+        shotsAudio = GetComponent<AudioSource>();
+        //
+        era = GameObject.Find("EnemSpawner").GetComponent<EnemyRandomAppear>();
 	}
 
 	void Update()
@@ -43,6 +49,8 @@ public class PlayerControll : MonoBehaviour
 			Fire();
             //移動処理
 			Move();
+            //
+            era.StartGame();
 		}
         //タイマーの減衰
         timer -= Time.deltaTime;
@@ -58,6 +66,7 @@ public class PlayerControll : MonoBehaviour
 		    force = this.gameObject.transform.forward * (shotsSpeed * 100);
 		    bullets.GetComponent<Rigidbody>().AddForce(force);
 		    bullets.transform.position = launchPos.position;
+            shotsAudio.PlayOneShot(shotsAudio.clip);
         }
 	}
     //移動処理

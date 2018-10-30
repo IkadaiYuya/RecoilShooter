@@ -19,6 +19,8 @@ public class EnemyShot : MonoBehaviour
     [SerializeField] private float shotsInterval = 0.16f;
     //連発時のカウンタ
     private int shotsCnt = 0;
+    //弾発射時の音源
+    private AudioSource shotsAudio = null;
     //連発する弾の数
     [SerializeField] private int howManyFire = 3;
     //プレイヤーのオブジェクト
@@ -35,6 +37,8 @@ public class EnemyShot : MonoBehaviour
         playerPos = GameObject.FindGameObjectWithTag("Player");
         //プレイヤーの少し先の座標参照用
         targetPos = GameObject.Find("TargetPos");
+        //
+        shotsAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -91,6 +95,8 @@ public class EnemyShot : MonoBehaviour
         bullets.transform.position = launchPos.position;
         //次の発射間隔を指定
         timer = shotsTime;
+        //音源再生
+        shotsAudio.PlayOneShot(shotsAudio.clip);
     }
 
     //プレイヤーの少し前に指定しただけ連射
@@ -129,5 +135,7 @@ public class EnemyShot : MonoBehaviour
 
         //発射位置の設定
         bullets.transform.position = launchPos.position;
+        //音源再生
+        shotsAudio.PlayOneShot(shotsAudio.clip);
     }
 }

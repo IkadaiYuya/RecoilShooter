@@ -14,6 +14,8 @@ public class PlayerState : MonoBehaviour {
     //HPのUI表示スクリプト
     private PlayerHPView viewer;
 
+    private Camera camera;
+    private CameraShake shake;
     //あたり判定処理
     private void OnTriggerEnter(Collider other)
     {
@@ -24,11 +26,15 @@ public class PlayerState : MonoBehaviour {
             this.hp--;
             //ダメージを通知
             damage = true;
+            //画面を揺らす
+            shake.Shake(0.12f, 0.75f);
             //耐久力が0以下なら
-            if(this.hp <= 0)
+            if (this.hp <= 0)
             {
                 //消滅する前にHPのUIを非表示に
                 viewer.HideHP();
+
+                shake.Shake(1.75f, 1.5f);
                 //削除
                 Destroy(this.gameObject);
                 //爆発エフェクト生成
@@ -45,6 +51,8 @@ public class PlayerState : MonoBehaviour {
             this.hp--;
             //ダメージを通知
             damage = true;
+            //画面を揺らす
+            shake.Shake(0.12f, 0.75f);
             //敵の弾を削除
             Destroy(other.gameObject);
             //耐久力が0以下なら
@@ -52,6 +60,8 @@ public class PlayerState : MonoBehaviour {
             {
                 //消滅する前にHPのUIを非表示に
                 viewer.HideHP();
+
+                shake.Shake(1.75f, 1.5f);
                 //削除
                 Destroy(this.gameObject);
                 //爆発エフェクト生成
@@ -67,6 +77,9 @@ public class PlayerState : MonoBehaviour {
     void Start () {
         //HPのUI描画用スクリプトの所得
         viewer = GameObject.Find("HPViews").GetComponent<PlayerHPView>();
+
+        camera = Camera.main;
+        shake = camera.GetComponent<CameraShake>();
     }
 	
 	// Update is called once per frame

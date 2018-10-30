@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecoilShooter", "RecoilShooter.csproj", "{2C141408-D4F4-F171-6503-FDE8ED0A81BB}"
 EndProject
 Global

@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1261,6 +1261,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea1a7812b9fee594eba50561c607ea24, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1319443119
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178094492408194, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e6faa082dc08fc84e9b9a80121913390, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1391238922 stripped
 GameObject:
@@ -2039,7 +2081,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.019607844, g: 0, b: 0.039215688, a: 0}
+  m_BackGroundColor: {r: 0.015686275, g: 0, b: 0.0627451, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

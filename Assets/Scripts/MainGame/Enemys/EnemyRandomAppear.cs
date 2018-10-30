@@ -7,6 +7,8 @@ public class EnemyRandomAppear : MonoBehaviour {
     [SerializeField] private List<Transform> WavesPosition;
     //出現させる隊の敵のリスト
     [SerializeField] private List<GameObject> Waves;
+    //メインに入ってからのタイマー
+    private float allTimer = 0.0f;
     //出現タイマー
     private float timer = 0.0f;
     //出現間隔
@@ -21,18 +23,20 @@ public class EnemyRandomAppear : MonoBehaviour {
     [SerializeField] private int maxWavesNum = 1;
     //
     private GameObject player;
+    //
+    private bool startFlag = false;
 
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        //突撃部隊(弱)をランダムな場所に生成
-        Instantiate(Waves[1], WavesPosition[Random.Range(0, WavesPosition.Count)].position, transform.rotation);
+        ////突撃部隊(弱)をランダムな場所に生成
+        //Instantiate(Waves[1], WavesPosition[Random.Range(0, WavesPosition.Count)].position, transform.rotation);
     }
 
     // Update is called once per frame
     void Update () {
         //プレイヤーが生きていたら
-        if(player != null)
+        if(player != null && startFlag)
         {
             //現在のプレイ時間から生成する敵の隊列の数の最大数を判断する
             EnemysWaveNowMax();
@@ -45,6 +49,7 @@ public class EnemyRandomAppear : MonoBehaviour {
             }
             //タイマー加算
             timer += Time.deltaTime;
+            allTimer += Time.deltaTime;
         }
     }
 
@@ -80,13 +85,13 @@ public class EnemyRandomAppear : MonoBehaviour {
     private void EnemysWaveNowMax()
     {
         //第１フェーズなら
-        if(Time.time <= ferse1Time)
+        if(allTimer <= ferse1Time)
         {
             //何もせず終了
             return;
         }
         //第１フェーズ以降で一定時間経つと
-        else if ((Time.time - ferse1Time) % maxWavesUpTime < 0.016f)
+        else if ((allTimer - ferse1Time) % maxWavesUpTime < 0.016f)
         {
             //敵部隊の最大生成数の増加
             maxWavesNum++;
@@ -100,5 +105,10 @@ public class EnemyRandomAppear : MonoBehaviour {
         GameObject[] WavesNum_ = GameObject.FindGameObjectsWithTag("EnemysWave");
         //現在の敵部隊の数を配列の長さから算出
         wavesNum = WavesNum_.Length;
+    }
+
+    public void StartGame()
+    {
+        startFlag = true;
     }
 }
