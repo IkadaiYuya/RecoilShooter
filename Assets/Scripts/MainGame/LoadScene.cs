@@ -10,11 +10,11 @@ public class LoadScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        FadeManager.FadeIn();
+    }
+
+    // Update is called once per frame
+    void Update () {
         //プレイヤーが消滅しているか
         if(PlayerIsDead())
         {//していたら
@@ -24,6 +24,7 @@ public class LoadScene : MonoBehaviour {
             {
                 Destroy(ene);
             }
+            FadeManager.FadeOut();
             //リザルトSceneへ
             SceneManager.LoadScene("Results");
         }

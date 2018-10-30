@@ -37,6 +37,8 @@ public class Select_Player_Result : MonoBehaviour {
     private Vector3[] rotAngle = new Vector3[3];
     //
     [SerializeField] private List<GameObject> select;
+    //
+    private LoadSceneFromResult lsfr;
 
     // Use this for initialization
     void Start () {
@@ -47,6 +49,8 @@ public class Select_Player_Result : MonoBehaviour {
             rotAngle[pN] = new Vector3(0, 120 * pN, 0);
         }
         select[1].SetActive(false);
+        //
+        lsfr = GameObject.Find("SceneManage").GetComponent<LoadSceneFromResult>();
     }
 
     // Update is called once per frame
@@ -65,6 +69,11 @@ public class Select_Player_Result : MonoBehaviour {
     {
         //入力値を取得
         input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //入力があったらシーンマネージャーのタイマーをリセット
+        if(input.magnitude != 0)
+        {
+            lsfr.ResetAutoTimer();
+        }
         //入力値がX軸の方が大きいなら
         if(input.x > 0.1f && input.x > input.y ||
             input.x < -0.1f && input.x < input.y)
