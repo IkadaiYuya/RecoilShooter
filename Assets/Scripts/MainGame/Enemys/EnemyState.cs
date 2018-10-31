@@ -15,7 +15,7 @@ public class EnemyState : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-        scoreMane = GameObject.Find("MainGameUI").GetComponent<ScoreManager>();
+        scoreMane = GameObject.Find("Canvas").GetComponent<ScoreManager>();
 	}
 	
 	// Update is called once per frame

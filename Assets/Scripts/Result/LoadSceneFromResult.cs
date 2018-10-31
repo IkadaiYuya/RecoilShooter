@@ -10,11 +10,14 @@ public class LoadSceneFromResult : MonoBehaviour {
     private float timer = 0.0f;
     //
     [SerializeField] private float autoTitleLoadTime = 30.0f;
+    //
+    private FadeManager fmana;
 
     // Use this for initialization
     void Start()
     {
-        FadeManager.FadeIn();
+        fmana = GameObject.Find("Canvas").GetComponent<FadeManager>();
+        fmana.FadeIn();
         select = GameObject.Find("Select_Player").GetComponent<Select_Player_Result>();
         timer = 0.0f;
     }
@@ -25,29 +28,24 @@ public class LoadSceneFromResult : MonoBehaviour {
         //選択が終了していたら
         if (select.selected)
         {
-            //スコアを初期化
-            ScoreManager.score = 0;
             //Exitが選択されたら
             if(select.selected_exit)
             {
-                FadeManager.FadeOut();
                 //タイトルに戻る
-                SceneManager.LoadScene("Title");
+                fmana.FadeOut("Title");
             }
             //プレイヤーが選択されたら
             else
             {
-                FadeManager.FadeOut();
                 //メインゲームに戻る
-                SceneManager.LoadScene("MainGame");
+                fmana.FadeOut("MainGame");
             }
         }
         //一定時間選択されなかったら
         else if(timer > autoTitleLoadTime)
         {
-            FadeManager.FadeOut();
             //タイトルに戻る
-            SceneManager.LoadScene("Title");
+            fmana.FadeOut("Title");
         }
         timer += Time.deltaTime;
     }

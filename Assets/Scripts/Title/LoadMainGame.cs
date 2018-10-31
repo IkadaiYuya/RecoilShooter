@@ -7,11 +7,14 @@ public class LoadMainGame : MonoBehaviour {
 
     //
     private Select_Player select;
+    //
+    private FadeManager fmana;
 
     // Use this for initialization
     void Start()
     {
-        FadeManager.FadeIn();
+        fmana = GameObject.Find("Canvas").GetComponent<FadeManager>();
+        fmana.FadeIn();
         select = GameObject.Find("Select_Player").GetComponent<Select_Player>();
     }
 
@@ -27,7 +30,6 @@ public class LoadMainGame : MonoBehaviour {
     //
     private void SceneChange()
     {
-        FadeManager.FadeOut();
-        SceneManager.LoadScene("MainGame");
+        fmana.FadeOut("MainGame");
     }
 }

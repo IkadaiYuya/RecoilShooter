@@ -2,55 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FadeManager : MonoBehaviour {
 
     //
-    private static Canvas canvas;
+    private Image image;
     //
-    private static Image image;
+    private float alpha;
     //
-    private static float alpha;
+    private bool fadeInFlag = false;
     //
-    private static bool fadeInFlag = false;
+    private bool fadeOutFlag = false;
     //
-    private static bool fadeOutFlag = false;
+    [SerializeField] private float fadeTime = 0.5f;
     //
-    [SerializeField] private static float fadeTime = 0.5f;
-    //
-    private static GameObject CanvasPos;
+    private string nextScene = "";
 
-    static void Init()
+    void Start()
     {
-        GameObject canvastemp = new GameObject("CanvasFade");
-        canvas = canvastemp.AddComponent<Canvas>();
-        canvastemp.AddComponent<GraphicRaycaster>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvastemp.AddComponent<FadeManager>();
-
-        //
-        canvas.sortingOrder = 100;
-
-        image = new GameObject("imageFade").AddComponent<Image>();
-        image.transform.SetParent(canvas.transform, false);
-        image.rectTransform.anchoredPosition = Vector3.zero;
-        //
-        image.rectTransform.sizeDelta = new Vector2(1920, 1080);
+        image = GameObject.Find("FadeImage").GetComponent<Image>();
     }
 
-    public static void FadeIn()
+    public void FadeIn()
     {
-        if (image == null)
-            Init();
-        fadeInFlag = true;
+        if (!fadeInFlag && !fadeOutFlag)
+        {
+            Debug.Log("FadeIn");
+            fadeInFlag = true;
+            alpha = 1.0f;
+        }
     }
 
-    public static void FadeOut()
+    public void FadeOut(string nextS)
     {
-        if (image == null)
-            Init();
-        canvas.enabled = true;
-        fadeOutFlag = true;
+        if (!fadeInFlag && !fadeOutFlag)
+        {
+            nextScene = nextS;
+            fadeOutFlag = true;
+            alpha = 0.0f;
+        }
     }
 	
 	// Update is called once per frame
@@ -64,10 +55,10 @@ public class FadeManager : MonoBehaviour {
             {
                 fadeInFlag = false;
                 alpha = 0.0f;
-                canvas.enabled = false;
             }
 
             image.color = new Color(0, 0, 0, alpha);
+            Debug.Log(image.color);
         }
         else if(fadeOutFlag)
         {
@@ -78,10 +69,16 @@ public class FadeManager : MonoBehaviour {
             {
                 fadeOutFlag = false;
                 alpha = 1.0f;
+                if(nextScene == "Title" || nextScene == "MainGame")
+                {
+                    ScoreManager.score = 0;
+                }
+                //次のシーン呼び出し
+                SceneManager.LoadScene(nextScene);
             }
 
             //
             image.color = new Color(0, 0, 0, alpha);
         }
-	}
+    }
 }
