@@ -7,12 +7,14 @@ public class LoadScene : MonoBehaviour {
 
     //プレイヤー消滅後待機時間
     [SerializeField] private float waitTime = 3.0f;
-    //
+    //フェードマネージャー用変数
     private FadeManager fmana;
 
 	// Use this for initialization
 	void Start () {
+        //フェードマネージャーを取得
         fmana = GameObject.Find("Canvas").GetComponent<FadeManager>();
+        //フェードイン開始
         fmana.FadeIn();
     }
 
@@ -27,8 +29,8 @@ public class LoadScene : MonoBehaviour {
             {
                 Destroy(ene);
             }
-            fmana.FadeOut("Results");
             //リザルトSceneへ
+            fmana.FadeOut("Results");
         }
 	}
 

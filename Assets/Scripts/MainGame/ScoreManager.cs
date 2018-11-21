@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] private Text totalScore;
     //UIでのスライダー表示
     [SerializeField] private Slider slider;
-    //
+    //UIでのスコア倍率表示
     [SerializeField] private GameObject scoreMagniPanel;
 
 	// Use this for initialization
@@ -69,14 +69,20 @@ public class ScoreManager : MonoBehaviour {
     }
 
     //スコア加算用関数
+    //引数:(敵の所持ポイント)
     public void AddScore(int point)
     {
+        //現在のスコアにポイント×スコア倍率を加算
         score += point * scoreMagnification;
+        //スコア倍率の加算
         scoreMagnification++;
+        //スコア倍率が上限を超えたら
         if(scoreMagnification >= maxScoreMagni)
         {
+            //スコア倍率を最大値に設定
             scoreMagnification = maxScoreMagni;
         }
+        //スコア倍率の時間を最大値に戻す
         DicScoreMagnificationTimer = MaxDicScoreMagnificationTime;
     }
 }

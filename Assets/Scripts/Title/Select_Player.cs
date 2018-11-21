@@ -19,12 +19,10 @@ public class Select_Player : MonoBehaviour {
     private bool stickDown = false;
     //選択したプレイヤー番号
     public static int selected_Player = 0;
-    //
+    //入力値
     private Vector3 input = Vector3.zero;
     //選択し終わっているかどうか
     public bool selected = false;
-    //
-    public bool selected_Ranking = false;
     //回転先
     private Vector3[] rotAngle = new Vector3[3];
 
@@ -60,11 +58,6 @@ public class Select_Player : MonoBehaviour {
             //Horizontal側の処理を行う
             Input_Horizontal();
         }
-        //Y軸の方が大きかったら
-        else
-        {
-            Input_Vertical();
-        }
         //入力されていなかったら
         if (stickDown && input.magnitude == 0)
         {
@@ -78,17 +71,12 @@ public class Select_Player : MonoBehaviour {
         }
     }
 
-    //
-    void Input_Vertical()
-    {
 
-    }
-
-    //
+    //左右の入力があった時の処理
     void Input_Horizontal()
     {
         //前のフレームで未入力で現在入力があるとき
-        if (!stickDown && !selected_Ranking)
+        if (!stickDown)
         {
             //押されている
             stickDown = true;
@@ -132,7 +120,9 @@ public class Select_Player : MonoBehaviour {
     //回転
     private void Rotation_Selected()
     {
+        //機体たちを選択されている機体が中央に来るように指定
         Quaternion angle = Quaternion.Euler(rotAngle[PlayerNum()]);
+        //指定した向きまで回転
         transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, rotSpeed * Time.deltaTime);
     }
 
@@ -172,6 +162,7 @@ public class Select_Player : MonoBehaviour {
                     selected_Player = 2;
                     break;
             }
+            //フラグをオンに
             selected = true;
         }
     }

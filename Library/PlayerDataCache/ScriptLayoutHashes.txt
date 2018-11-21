@@ -98,7 +98,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 80d998e183d6f81f9f192048c87be9ac Assembly-CSharp.dll:.LoadSceneFromResult
-931a8608c6ae1949f3a9b0d15ff6b5ad Assembly-CSharp.dll:.Select_Player
+695136db70686bd6248677d718f013cf Assembly-CSharp.dll:.Select_Player
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -169,3 +169,4 @@ e6e28f77f669a1f3d18915bc3ad85490 Assembly-CSharp.dll:.PlayerHPView
 09f82f169b26f907f6876a32b8b77b1c Assembly-CSharp.dll:.FadeManager
 ff2fbbaf9675dd2c666743fd131033af Assembly-CSharp.dll:.EnemyRandomAppear
 da2d0af3a6cd27d563ab82203952dac8 Assembly-CSharp.dll:.EnemyMove
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameQuit

@@ -14,6 +14,7 @@ public class BackObjectRotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //指定した速さででY軸回転させる
         transform.Rotate(new Vector3(0, -rotSpeed, 0) * Time.deltaTime, Space.Self);
 	}
 }
